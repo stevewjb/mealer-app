@@ -1,2 +1,2 @@
 # mealer-app
-SEG 2105 Project
+SEG 2105 Project Group 24
