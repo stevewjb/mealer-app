@@ -1,9 +1,12 @@
 package com.example.mealer;
 
-public class Users {
+public class User {
     private String username;
     private String password;
     private String role;
+
+    private String id;
+    private String status;
 
     private String firstName;
     private String lastName;
@@ -12,12 +15,12 @@ public class Users {
     private String description;
     private String creditCard;
 
-    public Users() {
+    public User() {
 
     }
 
-    public Users(String username, String password, String role, String firstName, String lastName,
-                 String cheque, String address, String description) {
+    public User(String username, String password, String role, String firstName, String lastName,
+                String cheque, String address, String description) {
         this.username = username;
         this.password = password;
         this.role = role;
@@ -28,8 +31,8 @@ public class Users {
         this.description = description;
     }
 
-    public Users(String username, String password, String role, String firstName, String lastName,
-                 String address, String creditCard) {
+    public User(String username, String password, String role, String firstName, String lastName,
+                String address, String creditCard) {
         this.username = username;
         this.password = password;
         this.role = role;
@@ -49,6 +52,14 @@ public class Users {
 
     public String getRole() {
         return role;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getStatus() {
+        return status;
     }
 
     public String getFirstName() {
@@ -85,6 +96,14 @@ public class Users {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public void setFirstName(String firstName) {

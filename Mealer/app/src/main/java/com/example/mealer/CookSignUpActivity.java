@@ -3,7 +3,6 @@ package com.example.mealer;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,7 +24,7 @@ public class CookSignUpActivity extends AppCompatActivity {
     private EditText firstNameText, lastNameText, usernameText, passwordText, chequeText,
             addressText, descriptionText;
     private Button buttonCookSignup;
-    private List<Users> users = new ArrayList<>();
+    private List<User> users = new ArrayList<>();
     private DatabaseReference databaseUsers;
 
     @Override
@@ -33,9 +32,9 @@ public class CookSignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cook_sign_up);
 
-        firstNameText = (EditText) findViewById(R.id.firstNameEditText);
-        lastNameText = (EditText) findViewById(R.id.lastNameEditText);
-        usernameText = (EditText) findViewById(R.id.emailEditText);
+        firstNameText = (EditText) findViewById(R.id.mealNameEditText);
+        lastNameText = (EditText) findViewById(R.id.mealTypeEditText);
+        usernameText = (EditText) findViewById(R.id.cuisineTypeEditText);
         passwordText = (EditText) findViewById(R.id.passwordEditText);
         chequeText = (EditText) findViewById(R.id.chequeEditText);
         addressText = (EditText) findViewById(R.id.addressEditText);
@@ -46,7 +45,7 @@ public class CookSignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (verifyInputs()) {
-                    Users user = new Users(username, password, "Cook",
+                    User user = new User(username, password, "Cook",
                             firstName, lastName, cheque, address, description);
                     databaseUsers.push().setValue(user);
                     Toast.makeText(getApplicationContext(), "Sign up success!", Toast.LENGTH_LONG).show();
@@ -60,7 +59,7 @@ public class CookSignUpActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 users.clear();
                 for (DataSnapshot postSnapshot: snapshot.getChildren()){
-                    Users user = postSnapshot.getValue(Users.class);
+                    User user = postSnapshot.getValue(User.class);
                     users.add(user);
                 }
             }
@@ -90,7 +89,7 @@ public class CookSignUpActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Password can not be empty!", Toast.LENGTH_LONG).show();
             return false;
         }
-        for (Users x : users) {
+        for (User x : users) {
             if (x.getUsername().equals(username)) {
                 Toast.makeText(getApplicationContext(), "This username has already exist!", Toast.LENGTH_LONG).show();
                 return false;

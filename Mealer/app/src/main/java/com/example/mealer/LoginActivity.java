@@ -27,8 +27,8 @@ public class LoginActivity extends AppCompatActivity {
     private Button buttonClientSignup;
     private Button buttonCookSignup;
     private EditText usernameText, passwordText;
-    private Users user;
-    private List<Users> users = new ArrayList<>();
+    private User user;
+    private List<User> users = new ArrayList<>();
     private DatabaseReference databaseUsers;
 
     @Override
@@ -48,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (verifyInputs()) {
                     Intent intent = new Intent(getApplicationContext(), WelcomeActivity.class);
                     intent.putExtra("role", user.getRole());
+                    intent.putExtra("status", user.getStatus());
                     startActivity(intent);
                 }
             }
@@ -75,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 users.clear();
                 for (DataSnapshot postSnapshot: snapshot.getChildren()){
-                    Users user = postSnapshot.getValue(Users.class);
+                    User user = postSnapshot.getValue(User.class);
                     users.add(user);
                 }
             }
@@ -98,7 +99,7 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Password can not be empty!", Toast.LENGTH_LONG).show();
             return false;
         }
-        for (Users x : users) {
+        for (User x : users) {
             if (x.getUsername().equals(username)) {
                 user = x;
             }

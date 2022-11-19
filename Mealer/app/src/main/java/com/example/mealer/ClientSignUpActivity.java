@@ -24,7 +24,7 @@ public class ClientSignUpActivity extends AppCompatActivity {
     private EditText firstNameText, lastNameText, usernameText, passwordText,
             addressText, creditCardText;
     private Button buttonClientSignup;
-    private List<Users> users = new ArrayList<>();
+    private List<User> users = new ArrayList<>();
     private DatabaseReference databaseUsers;
 
     @Override
@@ -44,7 +44,7 @@ public class ClientSignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (verifyInputs()) {
-                    Users user = new Users(username, password, "Client",
+                    User user = new User(username, password, "Client",
                             firstName, lastName, address, creditCard);
                     databaseUsers.push().setValue(user);
                     Toast.makeText(getApplicationContext(), "Sign up success!", Toast.LENGTH_LONG).show();
@@ -58,7 +58,7 @@ public class ClientSignUpActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 users.clear();
                 for (DataSnapshot postSnapshot: snapshot.getChildren()){
-                    Users user = postSnapshot.getValue(Users.class);
+                    User user = postSnapshot.getValue(User.class);
                     users.add(user);
                 }
             }
@@ -86,7 +86,7 @@ public class ClientSignUpActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Password can not be empty!", Toast.LENGTH_LONG).show();
             return false;
         }
-        for (Users x : users) {
+        for (User x : users) {
             if (x.getUsername().equals(username)) {
                 Toast.makeText(getApplicationContext(), "This username has already exist!", Toast.LENGTH_LONG).show();
                 return false;
