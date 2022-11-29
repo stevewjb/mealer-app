@@ -34,7 +34,7 @@ public class WelcomeActivity extends AppCompatActivity {
         if (intent.getStringExtra("role").equals("Cook") && !intent.getStringExtra("status").equals("Suspend")) {
             startActivity(intent2);
         }
-        if (intent.getStringExtra("status").equals("Suspend")) {
+        if (intent.getStringExtra("role").equals("Cook") && intent.getStringExtra("status").equals("Suspend")) {
             messageText.setText("Your account has been suspended!");
         }
 

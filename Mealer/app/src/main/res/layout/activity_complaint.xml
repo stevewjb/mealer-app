@@ -17,7 +17,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="240dp"
                 android:layout_height="wrap_content"
                 android:text="Customer Name: "
                 android:textColor="@color/black"
@@ -37,9 +37,8 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="240dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="Cook Name: "
                 android:textColor="@color/black"
                 android:textSize="30dp" />
@@ -68,8 +67,7 @@
             <TextView
                 android:id="@+id/complaintTextView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_height="500dp"
                 android:textColor="@color/black"
                 android:textSize="30dp" />
 

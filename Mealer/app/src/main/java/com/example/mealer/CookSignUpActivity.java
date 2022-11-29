@@ -49,6 +49,7 @@ public class CookSignUpActivity extends AppCompatActivity {
                             firstName, lastName, cheque, address, description);
                     databaseUsers.push().setValue(user);
                     Toast.makeText(getApplicationContext(), "Sign up success!", Toast.LENGTH_LONG).show();
+                    finish();
                 }
             }
         });

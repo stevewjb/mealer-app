@@ -48,6 +48,7 @@ public class ClientSignUpActivity extends AppCompatActivity {
                             firstName, lastName, address, creditCard);
                     databaseUsers.push().setValue(user);
                     Toast.makeText(getApplicationContext(), "Sign up success!", Toast.LENGTH_LONG).show();
+                    finish();
                 }
             }
         });
