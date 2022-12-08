@@ -7,5 +7,6 @@ Github: https://github.com/stevewjb/mealer-app
 
 Login information:
 Administrator -- username: admin // password: admin
+Client -- username: client // password: client
 Cook -- username: cook // password: cook
 Cook(Suspended) -- username: cook2 // password: cook2
