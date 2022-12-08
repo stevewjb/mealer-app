@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ComplaintActivity">
+    tools:context=".ClientRateActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,14 +17,14 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="180dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Client Name:"
+                android:text="Cook Name: "
                 android:textColor="@color/black"
                 android:textSize="30dp" />
 
             <TextView
-                android:id="@+id/clientTextView"
+                android:id="@+id/cookNameTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
@@ -37,61 +37,66 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="180dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cook Name:"
+                android:text="Meal Name: "
                 android:textColor="@color/black"
                 android:textSize="30dp" />
 
             <TextView
-                android:id="@+id/cookTextView"
+                android:id="@+id/mealNameTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="30dp" />
         </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="100dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Complaint:"
-            android:textColor="@color/black"
-            android:textSize="30dp" />
+            android:gravity="center"
+            android:text="You can rate the cook here."
+            android:textSize="24sp" />
 
-        <LinearLayout
+        <EditText
+            android:id="@+id/rateText"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/btn_rate"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="#ACACAC"
+            android:text="Rate" />
+
+        <Space
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="100dp" />
 
-            <TextView
-                android:id="@+id/complaintTextView"
-                android:layout_width="match_parent"
-                android:layout_height="500dp"
-                android:textColor="@color/black"
-                android:textSize="30dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Any complaint during your purchase?"
+            android:textSize="24sp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/dismissBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Dismiss"
-                    android:onClick="dismiss"/>
-
-                <Button
-                    android:id="@+id/suspendBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Suspend"
-                    android:onClick="suspend"/>
-            </LinearLayout>
-        </LinearLayout>
+        <Button
+            android:id="@+id/btn_complaint"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="#ACACAC"
+            android:text="complaint" />
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

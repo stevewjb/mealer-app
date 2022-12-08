@@ -35,14 +35,16 @@ public class CookHomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cook_home);
 
-        listView = (ListView) findViewById(R.id.menulist);
+        listView = (ListView) findViewById(R.id.menuList);
         buttonAddMeal = (Button) findViewById(R.id.btn_addMeal);
+        Intent intent = getIntent();
 
         buttonAddMeal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), CookAddMealActivity.class);
-                startActivity(intent);
+                Intent intent1 = new Intent(getApplicationContext(), CookAddMealActivity.class);
+                intent1.putExtra("id", intent.getStringExtra("id"));
+                startActivity(intent1);
             }
         });
 

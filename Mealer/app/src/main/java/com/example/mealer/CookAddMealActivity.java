@@ -3,6 +3,7 @@ package com.example.mealer;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,7 +21,7 @@ import java.util.List;
 
 public class CookAddMealActivity extends AppCompatActivity {
 
-    private String mealName, mealType, cuisineType, ingredients, allergens, price, description;
+    private String cookId, mealName, mealType, cuisineType, ingredients, allergens, price, description;
     private EditText mealNameText, mealTypeText, cuisineTypeText, ingredientsText, allergensText,
             priceText, descriptionText;
     private Button buttonAdd;
@@ -40,6 +41,9 @@ public class CookAddMealActivity extends AppCompatActivity {
         priceText = (EditText) findViewById(R.id.priceEditText);
         descriptionText = (EditText) findViewById(R.id.descriptionEditText);
         buttonAdd = (Button) findViewById(R.id.btn_add);
+
+        Intent intent = getIntent();
+        cookId = intent.getStringExtra("id");
 
         databaseMeals = FirebaseDatabase.getInstance().getReference("menu");
         databaseMeals.addValueEventListener(new ValueEventListener() {
@@ -62,7 +66,7 @@ public class CookAddMealActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (verifyInputs()) {
-                    Meal meal = new Meal(mealName, mealType, cuisineType, ingredients, allergens, price, description);
+                    Meal meal = new Meal(cookId, mealName, mealType, cuisineType, ingredients, allergens, price, description, "Offered");
                     databaseMeals.push().setValue(meal);
                     Toast.makeText(getApplicationContext(), "Add meal success!", Toast.LENGTH_LONG).show();
                     finish();

@@ -7,6 +7,7 @@ public class User {
 
     private String id;
     private String status;
+    private String rating;
 
     private String firstName;
     private String lastName;
@@ -62,6 +63,10 @@ public class User {
         return status;
     }
 
+    public String getRating() {
+        return rating;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -104,6 +109,10 @@ public class User {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
     }
 
     public void setFirstName(String firstName) {

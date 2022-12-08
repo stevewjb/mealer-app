@@ -10,14 +10,16 @@ public class Meal {
     private String description;
 
     private String id;
+    private String cookId;
     private String status;
 
     public Meal() {
 
     }
 
-    public Meal(String mealName, String mealType, String cuisineType, String ingredients,
-                String allergens, String price, String description) {
+    public Meal(String cookId, String mealName, String mealType, String cuisineType, String ingredients,
+                String allergens, String price, String description, String status) {
+        this.cookId = cookId;
         this.mealName = mealName;
         this.mealType = mealType;
         this.cuisineType = cuisineType;
@@ -25,6 +27,7 @@ public class Meal {
         this.allergens = allergens;
         this.price = price;
         this.description = description;
+        this.status = status;
     }
 
     public String getMealName() {
@@ -57,6 +60,10 @@ public class Meal {
 
     public String getId() {
         return id;
+    }
+
+    public String getCookId() {
+        return cookId;
     }
 
     public String getStatus() {
@@ -93,6 +100,10 @@ public class Meal {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public void setCookId(String cookId) {
+        this.cookId = cookId;
     }
 
     public void setStatus(String status) {

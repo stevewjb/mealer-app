@@ -49,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), WelcomeActivity.class);
                     intent.putExtra("role", user.getRole());
                     intent.putExtra("status", user.getStatus());
+                    intent.putExtra("id", user.getId());
                     startActivity(intent);
                 }
             }
@@ -77,6 +78,7 @@ public class LoginActivity extends AppCompatActivity {
                 users.clear();
                 for (DataSnapshot postSnapshot: snapshot.getChildren()){
                     User user = postSnapshot.getValue(User.class);
+                    user.setId(postSnapshot.getKey());
                     users.add(user);
                 }
             }

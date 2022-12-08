@@ -32,10 +32,17 @@ public class WelcomeActivity extends AppCompatActivity {
 
         Intent intent2 = new Intent(getApplicationContext(), CookHomeActivity.class);
         if (intent.getStringExtra("role").equals("Cook") && !intent.getStringExtra("status").equals("Suspend")) {
+            intent2.putExtra("id", intent.getStringExtra("id"));
             startActivity(intent2);
         }
         if (intent.getStringExtra("role").equals("Cook") && intent.getStringExtra("status").equals("Suspend")) {
             messageText.setText("Your account has been suspended!");
+        }
+
+        Intent intent3 = new Intent(getApplicationContext(), ClientHomeActivity.class);
+        if (intent.getStringExtra("role").equals("Client")) {
+            intent3.putExtra("id", intent.getStringExtra("id"));
+            startActivity(intent3);
         }
 
         buttonLogoff = (Button) findViewById(R.id.btn_logoff);
